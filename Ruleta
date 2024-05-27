@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta Íntima para Parejas: Very Hot Actions</title>
+    <style>
+        #wheel {
+            width: 500px;
+            height: 500px;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+            position: relative;
+        }
+        #wheel .slice {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            transform-origin: 100% 100%;
+            overflow: hidden;
+        }
+        #wheel .slice div {
+            width: 200%;
+            height: 200%;
+            border-radius: 50%;
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #spin {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wheel"></div>
+    <button id="spin">Girar la Ruleta</button>
+    <script>
+        const actions = [
+            "Realiza un baile sensual para tu pareja.",
+            "Da un beso apasionado a tu pareja durante 1 minuto.",
+            "Desliza tus manos suavemente por el cuerpo de tu pareja durante 3 minutos.",
+            "Cúbrele los ojos a tu pareja y bésale en lugares inesperados.",
+            "Susúrrale a tu pareja tus deseos más profundos.",
+            "Simula un escenario de role-playing de tu elección durante 5 minutos.",
+            "Usa aceite de masaje para darle un masaje erótico a tu pareja.",
+            "Permite que tu pareja te ate las manos durante 3 minutos y haga lo que quiera.",
+            "Dale un beso francés a tu pareja durante 3 minutos.",
+            "Tómate un minuto para describirle a tu pareja cómo te gustaría que te tocara.",
+            "Haz un juego de rol donde actúen una fantasía mutua.",
+            "Escribe una nota erótica y léela en voz alta a tu pareja.",
+            "Besa y lame a tu pareja en su parte favorita durante 3 minutos.",
+            "Usa un juguete sexual en tu pareja durante 5 minutos.",
+            "Desnuda a tu pareja lentamente mientras le dices cosas sucias."
+        ];
+
+        const colors = ["#FF9999", "#66B3FF", "#99FF99", "#FFCC99", "#66FF66", "#FF6666"];
+        const wheel = document.getElementById('wheel');
+
+        actions.forEach((action, index) => {
+            const slice = document.createElement('div');
+            slice.classList.add('slice');
+            slice.style.transform = `rotate(${(index / actions.length) * 360}deg)`;
+
+            const innerSlice = document.createElement('div');
+            innerSlice.style.background = colors[index % colors.length];
+            innerSlice.innerText = action;
+
+            slice.appendChild(innerSlice);
+            wheel.appendChild(slice);
+        });
+
+        document.getElementById('spin').addEventListener('click', () => {
+            const randomDegree = Math.floor(Math.random() * 360);
+            wheel.style.transition = 'transform 4s ease-out';
+            wheel.style.transform = `rotate(${randomDegree + 3600}deg)`;
+        });
+    </script>
+</body>
+</html>
